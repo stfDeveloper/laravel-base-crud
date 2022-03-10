@@ -10,7 +10,7 @@
     <div class="form-group">
         <label for="title">title</label>
         <input type="text" class="form-control" name="title" id="" placeholder="inserisci il nuovo titolo">
-    </div>
+    </div> 
 
     <div class="form-group">
         <label for="description">description</label>
