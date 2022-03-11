@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Comic;
 
 use Illuminate\Http\Request;
@@ -15,7 +16,7 @@ class ComicsController extends Controller
     public function index()
     {
         $comics = Comic::all();
-        return view ('comics.index', compact('comics'));
+        return view('comics.index', compact('comics'));
     }
 
     /**
@@ -25,7 +26,7 @@ class ComicsController extends Controller
      */
     public function create()
     {
-        return view ('comics.create');
+        return view('comics.create');
     }
 
     /**
@@ -60,7 +61,7 @@ class ComicsController extends Controller
      */
     public function show(Comic $comic)
     {
-        return view ('comics.show', compact('comic'));
+        return view('comics.show', compact('comic'));
     }
 
     /**
@@ -71,7 +72,7 @@ class ComicsController extends Controller
      */
     public function edit(Comic $comic)
     {
-        return view ('comics.edit', compact('comic'));
+        return view('comics.edit', compact('comic'));
     }
 
     /**
@@ -81,7 +82,7 @@ class ComicsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,Comic $comic)
+    public function update(Request $request, Comic $comic)
     {
         $data = $request->all();
         $newComic = new Comic();
