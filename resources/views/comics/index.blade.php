@@ -23,16 +23,23 @@
             <th scope="row"> {{$comic->id}}</th>
             <td>{{$comic->title}}</td>
             <td>{{$comic->description}}</td>
-            <td>{{$comic->thumb}}</td>
+            <td><img src="{{$comic->thumb}}" alt=""></td>
             <td>{{$comic->price}}</td>
             <td>{{$comic->series}}</td>
             <td>{{$comic->sale_date}}</td>
             <td>{{$comic->type}}</td>
+            <td><a href="{{route("comics.show", $comic->id)}}"><button type="button">vedi</button></a></td>
+            <td><a href="{{route("comics.edit", $comic->id)}}"><button type="button">edit</button></a></td>
+            <form action="{{route("comics.destroy", $comic->id)}}" onsubmit="return confirm('cancellare?')" method="POST" >
+                @csrf
+                @method("DELETE")
+                <td><button type="submit">delete</button></td>
+            </form>
+
         </tr>
            
         @endforeach
     </tbody>
-    
 </table>
 
 @endsection
