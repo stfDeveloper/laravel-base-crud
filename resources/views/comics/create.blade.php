@@ -1,7 +1,7 @@
 @extends('layout.home')
 @section('title','ComicsList')
 @section('content')
-<div class="container">
+<div class="containerCrea">
     <h1>
         Crea
     </h1> 
@@ -37,8 +37,18 @@
     </div>
     <button type="submit">Aggiungi</button>
     </form>
+    <a href="{{route("comics.index")}}"><button type="button">back</button></a>
 </div>
-    
+    @if ($errors->any())
+    <div class="errorTable">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
 @endsection
     
 

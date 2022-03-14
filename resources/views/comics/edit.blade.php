@@ -1,7 +1,7 @@
 @extends('layout.home')
 
 @section('content')
-<div class="container">
+<div class="containerEdit">
     <h1>modifica</h1>
     <form action="{{route("comics.update" ,$comic->id)}}" method="POST">
         @csrf
@@ -34,8 +34,18 @@
             <label for="type">type</label>
             <input type="text" class="form-control" name="type" id="" placeholder="inserisci il tipo" value="{{$comic->type}}">
         </div>
-        <button type="submit">salva</button>
+        <button class="buttonEdit" type="submit">salva</button>
     </form>
+<a href="{{route("comics.index")}}"><button  class="buttonEdit" type="button">back</button></a>
+
 </div>
-    
+    @if ($errors->any())
+    <div class="errorTable">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
 @endsection

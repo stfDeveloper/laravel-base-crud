@@ -28,16 +28,15 @@
             <td>{{$comic->series}}</td>
             <td>{{$comic->sale_date}}</td>
             <td>{{$comic->type}}</td>
-            <td><a href="{{route("comics.show", $comic->id)}}"><button type="button">vedi</button></a></td>
-            <td><a href="{{route("comics.edit", $comic->id)}}"><button type="button">edit</button></a></td>
-            <form action="{{route("comics.destroy", $comic->id)}}" onsubmit="return confirm('cancellare?')" method="POST" >
-                @csrf
-                @method("DELETE")
-                <td><button type="submit">delete</button></td>
-            </form>
-
+            <td><a href="{{route("comics.show", $comic->id)}}"><button type="button">vedi</button></a>
+                <a href="{{route("comics.edit", $comic->id)}}"><button type="button">edit</button></a>
+                <form action="{{route("comics.destroy", $comic->id)}}" onsubmit="return confirm('cancellare?')" method="POST" >
+                    @csrf
+                    @method("DELETE")
+                    <button type="submit">delete</button>
+                </form>
+            </td>
         </tr>
-           
         @endforeach
     </tbody>
 </table>
